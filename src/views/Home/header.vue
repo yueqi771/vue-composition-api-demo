@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-    import { defineComponent, PropType, reactive, toRefs } from "vue";
+    import { defineComponent, EmitsOptions, PropType, reactive, SetupContext, toRefs } from "vue";
     import { CATOGORY_TYPES } from "../../typings/home";
 
     export default defineComponent({
@@ -20,7 +20,7 @@
             }
         },
         emits: ["setCurrentCategory"], // 为了做提示的
-        setup(props, context) {
+        setup(props, context: SetupContext<EmitsOptions>) {
             let state = reactive({
                 options: [
                     { text: '全部课程', value: CATOGORY_TYPES.ALL },
